@@ -11,6 +11,9 @@ jobs:
   build:
     name: Build and Package
     runs-on: ubuntu-20.04
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v2
         name: Checkout Repository
@@ -22,3 +25,5 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        
+      - name: 
