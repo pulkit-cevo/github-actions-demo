@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "demo_bucket" {
-  bucket = "pulkit_github_action"
+  bucket = "pulkit-github-action"
 
   tags = {
     Name        = "demo_bucket"
