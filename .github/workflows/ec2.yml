@@ -25,14 +25,18 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: 
-          cd terraform/s3 ;
+          cd terraform/ec2 ;
           terraform init -input=false
       
       - name: Terraform validation
         run: 
-          cd terraform/s3 ;
+          cd terraform/ec2 ;
           terraform validate
 
       - name: Terraform apply
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: 
+          cd terraform/ec2 ;
+          terraform apply -auto-approve -input=false
