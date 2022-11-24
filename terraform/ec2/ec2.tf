@@ -10,6 +10,7 @@ data "aws_ami" "ubuntu" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
+}
 
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
